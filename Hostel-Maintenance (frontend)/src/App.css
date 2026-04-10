@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  /* THE PREMIUM INDIGO & SLATE PALETTE */
+  --bg-color: #f8fafc; /* Crisp cool-white background */
+  --text-main: #0f172a; /* Near-black Slate */
+  --text-muted: #64748b; /* Stone Gray */
+  
+  /* Primary Action Colors (Removing Orange) */
+  --brand-primary: #4f46e5; /* Electric Indigo (The color you have on buttons/links) */
+  --brand-secondary: #c7d2fe; /* Light indigo for hover states */
+  
+  /* Notice Board remains classic Green */
+  --chalkboard-bg: #1a362d; 
+  
+  /* PREMIUM KANBAN COLORS (For Admin Triage) */
+  --pending-border: #ef4444; /* Keep Red for Urgent/Pending */
+  --resolved-border: #10b981; /* Keep Green for Resolved */
+  
+  /* Sharper, refined shadows for white backgrounds */
+  --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* THE CUSTOM CSS LOGO */
+.nav-brand a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-brand a::before {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: var(--brand-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--brand-primary);
+}
+
+.nav-brand span {
+  color: var(--brand-primary);
+}
+
+
+.content-wrapper {
+  min-height: calc(100vh - 70px - 300px); /* Subtracts Nav and Footer height */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Nav Link Hover Effects */
+.nav-links a {
+  margin: 0 1.5rem;
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links a.active, .nav-links a:hover {
+  color: #4f46e5;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #4f46e5;
+}
+
+/* =========================================
+   PREMIUM PAGE TRANSITIONS
+   ========================================= */
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* By applying this animation to all our top-level page containers,
+  React will automatically trigger this smooth glide every time a new route loads! 
+*/
+.home-wrapper,
+.student-dashboard,
+.admin-dashboard,
+.raise-complaint-wrapper,
+.manage-complaints-container,
+.my-complaints-container {
+  animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Optional: Add a slight stagger to the navbar so it feels detached from the page sliding */
+.top-navbar {
+  animation: smoothFadeIn 0.4s ease-out forwards;
+}

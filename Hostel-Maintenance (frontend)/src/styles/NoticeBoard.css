@@ -1,0 +1,78 @@
+.chalkboard-frame {
+  background: #4a3728; /* Richer wood */
+  padding: 12px 12px 0 12px; /* Less padding on bottom for the tray */
+  border-radius: 12px;
+  box-shadow: var(--card-shadow), inset 0 0 10px rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+.chalkboard-surface {
+  background: radial-gradient(circle at top right, #2d5a4c 0%, #173129 100%);
+  border: 1px solid #11241e;
+  min-height: 380px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smudged Chalk Effect */
+.chalkboard-surface::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.chalkboard-header {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.2rem;
+  color: #fbbf24; /* Yellow chalk for header */
+  transform: rotate(-2deg);
+  margin-bottom: 2rem;
+}
+
+.chalkboard-content p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* THE TRAY DETAILS */
+.chalk-tray {
+  height: 24px;
+  background: #3b2c20;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: inset 0 5px 5px rgba(0,0,0,0.4);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 20px 4px 20px;
+  gap: 15px;
+}
+
+.chalk {
+  width: 30px;
+  height: 6px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.white-chalk { background: #f8f9fa; transform: rotate(5deg); }
+.yellow-chalk { background: #fbbf24; transform: rotate(-3deg); }
+
+.eraser {
+  width: 60px;
+  height: 12px;
+  background: #1e293b;
+  border-top: 4px solid #94a3b8;
+  margin-left: auto; /* Pushes to the right */
+}

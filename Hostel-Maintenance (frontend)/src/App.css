@@ -180,3 +180,22 @@ body {
     max-width: 100% !important;
   }
 } 
+
+/* ==========================================
+   🚨 ADMIN DASHBOARD SPLIT-SCREEN OVERRIDE 🚨
+   ========================================== */
+@media screen and (max-width: 768px) {
+  .dashboard-hero-split {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1.5rem !important; /* Reduces the massive 3rem gap on mobile */
+  }
+  
+  /* Make sure the child containers take full width */
+  .notice-editor-card,
+  .admin-status-column {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+}

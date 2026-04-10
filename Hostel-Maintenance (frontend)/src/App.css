@@ -155,3 +155,28 @@ body {
     margin: 0 0.5rem !important;
   }
 }
+
+/* ==========================================
+   🚨 DASHBOARD LAYOUT EMERGENCY FIX 🚨
+   ========================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Force the entire dashboard to stack (Sidebar on top, Content below) */
+  .student-dashboard, 
+  .admin-dashboard,
+  .dashboard-layout,
+  .dashboard-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  /* 2. Kill the invisible left margin that was saving space for the desktop sidebar */
+  .content-wrapper, 
+  .dashboard-content,
+  .main-content {
+    margin-left: 0 !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+} 

@@ -48,7 +48,7 @@ const RaiseComplaint = ({ user }) => {
 
     try {
       // THE MAGIC BRIDGE: Sending data to our Node.js server
-      const response = await fetch('http://localhost:5000/api/complaints', {
+      const response = await fetch('https://hostelflow-z0xs.onrender.com/api/complaints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

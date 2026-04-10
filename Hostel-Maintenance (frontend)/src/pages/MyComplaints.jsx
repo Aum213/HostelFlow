@@ -12,7 +12,7 @@ const MyComplaints = ({ user }) => {
   useEffect(() => {
     const fetchMyComplaints = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/complaints');
+        const res = await fetch('https://hostelflow-z0xs.onrender.com/api/complaints');
         const data = await res.json();
         
         // Filter for ONLY this student

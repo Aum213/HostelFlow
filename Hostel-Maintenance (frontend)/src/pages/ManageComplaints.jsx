@@ -15,7 +15,7 @@ const ManageComplaints = () => {
   useEffect(() => {
     const fetchAllComplaints = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/complaints');
+        const res = await fetch('https://hostelflow-z0xs.onrender.com/api/complaints');
         const data = await res.json();
         setComplaints(data);
         setIsLoading(false);
@@ -46,7 +46,7 @@ const ManageComplaints = () => {
 
     try {
       // Send the update to MongoDB
-      await fetch(`http://localhost:5000/api/complaints/${ticketId}`, {
+      await fetch(`https://hostelflow-z0xs.onrender.com/api/complaints/${ticketId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })

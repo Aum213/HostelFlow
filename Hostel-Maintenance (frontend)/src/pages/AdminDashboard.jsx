@@ -21,13 +21,13 @@ const AdminDashboard = ({ user }) => {
     const fetchAdminData = async () => {
       try {
         // 1. Fetch the current live notice
-        const noticeRes = await fetch('http://localhost:5000/api/notice');
+        const noticeRes = await fetch('https://hostelflow-z0xs.onrender.com/api/notice');
         const noticeData = await noticeRes.json();
         setLiveNotice(noticeData.content || "No active notices at this time.");
         setNotice(noticeData.content || ""); // Pre-fill the textarea
 
         // 2. Fetch ALL complaints for the Admin
-        const complaintsRes = await fetch('http://localhost:5000/api/complaints');
+        const complaintsRes = await fetch('https://hostelflow-z0xs.onrender.com/api/complaints');
         const complaintsData = await complaintsRes.json();
         
         setAllComplaints(complaintsData);
@@ -47,7 +47,7 @@ const AdminDashboard = ({ user }) => {
     setIsPosting(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/notice', {
+      const response = await fetch('https://hostelflow-z0xs.onrender.com/api/notice', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: notice })

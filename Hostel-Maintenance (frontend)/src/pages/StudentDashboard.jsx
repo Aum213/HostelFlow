@@ -18,12 +18,12 @@ const StudentDashboard = ({ user }) => {
     const fetchDashboardData = async () => {
       try {
         // 1. Fetch the live notice
-        const noticeRes = await fetch('http://localhost:5000/api/notice');
+        const noticeRes = await fetch('https://hostelflow-z0xs.onrender.com/api/notice');
         const noticeData = await noticeRes.json();
         setCurrentNotice(noticeData.content || "No active notices at this time.");
 
         // 2. Fetch all live complaints
-        const complaintsRes = await fetch('http://localhost:5000/api/complaints');
+        const complaintsRes = await fetch('https://hostelflow-z0xs.onrender.com/api/complaints');
         const complaintsData = await complaintsRes.json();
 
         // 3. Filter the complaints so the student ONLY sees their own tickets

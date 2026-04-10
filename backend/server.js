@@ -2,13 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcryptjs'); // NEW: For hashing passwords
-const jwt = require('jsonwebtoken'); // NEW: For VIP tokens
+const bcrypt = require('bcryptjs'); // For hashing passwords
+const jwt = require('jsonwebtoken'); // For VIP tokens
 
 // Import our Database Models
 const Complaint = require('./models/Complaint');
 const Notice = require('./models/Notice');
-const User = require('./models/User'); // NEW: User Model
+const User = require('./models/User'); // User Model
 
 const app = express();
 
@@ -19,6 +19,7 @@ app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`);
   next();
 });
+
 // --- DATABASE CONNECTION ---
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('🟢 MongoDB Connected Successfully!'))
@@ -26,13 +27,14 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // ==========================================
-// 🔐 AUTHENTICATION API ROUTES (NEW)
+// 🔐 AUTHENTICATION API ROUTES 
 // ==========================================
 
 // 1. REGISTER a new user
 app.post('/api/auth/register', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    // NEW: We are now pulling adminSecret from the frontend request
+    const { name, email, password, adminSecret } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -44,6 +46,13 @@ app.post('/api/auth/register', async (req, res) => {
     let role = 'student';
     if (email.endsWith('.edu.in')) {
       role = 'admin';
+      
+      // NEW: The Security Gatekeeper!
+      // If they don't provide the exact secret key, block them.
+      if (adminSecret !== process.env.ADMIN_SECRET_KEY) {
+        return res.status(401).json({ error: "Invalid Admin Secret Key. Access Denied." });
+      }
+
     } else if (!email.endsWith('.ac.in')) {
       return res.status(400).json({ error: "Invalid university email domain." });
     }

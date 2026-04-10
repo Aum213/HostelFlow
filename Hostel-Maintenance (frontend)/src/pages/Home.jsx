@@ -3,10 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 
 const Home = ({ onLogin }) => {
-  const [isRegistering, setIsRegistering] = useState(false); // NEW: Toggle between Login and Register
-  const [name, setName] = useState(''); // NEW: Needed for database
+  const [isRegistering, setIsRegistering] = useState(false); 
+  const [name, setName] = useState(''); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [adminSecret, setAdminSecret] = useState(''); // NEW: Admin Secret Key state
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,8 @@ const Home = ({ onLogin }) => {
         const response = await fetch('https://hostelflow-z0xs.onrender.com/api/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password })
+          // NEW: Added adminSecret to the payload being sent to the backend
+          body: JSON.stringify({ name, email, password, adminSecret })
         });
 
         const data = await response.json();
@@ -50,7 +52,8 @@ const Home = ({ onLogin }) => {
         // Success! Switch them back to login mode automatically
         setSuccessMsg('Account created successfully! Please log in.');
         setIsRegistering(false);
-        setPassword(''); // Clear password for security
+        setPassword(''); 
+        setAdminSecret(''); // Clear secret key for security
 
       } else {
         // ==========================================
@@ -66,7 +69,7 @@ const Home = ({ onLogin }) => {
 
         if (!response.ok) throw new Error(data.error || 'Login failed');
 
-        // Save the VIP Token to local storage so the browser remembers they are logged in
+        // Save the VIP Token to local storage
         localStorage.setItem('token', data.token);
 
         // Tell App.jsx who just logged in
@@ -157,6 +160,21 @@ const Home = ({ onLogin }) => {
                 />
               </div>
 
+              {/* NEW: Admin Secret Key Field (Only shows if registering with .edu.in) */}
+              {isRegistering && email.endsWith('.edu.in') && (
+                <div className="form-group" style={{ marginTop: '1.5rem' }}>
+                  <label>Admin Secret Key</label>
+                  <input
+                    type="password"
+                    className={`custom-input ${error ? 'input-error' : ''}`}
+                    placeholder="Enter the master key"
+                    value={adminSecret}
+                    onChange={(e) => { setAdminSecret(e.target.value); setError(''); }}
+                    required
+                  />
+                </div>
+              )}
+
               {/* Status Messages */}
               {error && <div className="error-msg" style={{ marginTop: '12px', color: '#ef4444', fontWeight: '600', fontSize: '0.9rem' }}>{error}</div>}
               {successMsg && <div className="success-msg" style={{ marginTop: '12px', color: '#10b981', fontWeight: '600', fontSize: '0.9rem' }}>{successMsg}</div>}
@@ -173,6 +191,7 @@ const Home = ({ onLogin }) => {
                   setIsRegistering(!isRegistering);
                   setError('');
                   setSuccessMsg('');
+                  setAdminSecret(''); // Clear secret key when toggling
                 }} 
                 style={{ background: 'none', border: 'none', color: 'var(--brand-primary)', fontWeight: '600', cursor: 'pointer', fontSize: '0.95rem' }}
               >

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer
+    <footer className="site-footer"
       style={{
         backgroundColor: '#1e293b',
         color: '#94a3b8',
@@ -10,7 +10,7 @@ const Footer = () => {
         marginTop: 'auto',
       }}
     >
-      <div
+      <div className="footer-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',

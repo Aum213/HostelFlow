@@ -214,3 +214,17 @@ body {
     text-align: center !important;
   }
 }
+
+/* ==========================================
+   🚨 FOOTER INLINE OVERRIDE FIX 🚨
+   ========================================== */
+@media screen and (max-width: 768px) {
+  .site-footer {
+    padding: 2rem 1rem !important; /* Shrinks the giant padding */
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important; /* Forces 1 column instead of 3 */
+    text-align: center !important;
+    gap: 2rem !important;
+  }
+}

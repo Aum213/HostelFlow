@@ -47,3 +47,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* --- COMPLAINT TABLE MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .complaint-table {
+    display: block !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+  }
+}

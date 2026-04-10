@@ -72,3 +72,24 @@
   background: rgba(99, 102, 241, 0.1);
   color: white;
 }
+
+/* --- SIDEBAR MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 1rem !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .sidebar ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  .sidebar li {
+    margin-bottom: 0 !important;
+  }
+}

@@ -76,3 +76,17 @@
   border-top: 4px solid #94a3b8;
   margin-left: auto; /* Pushes to the right */
 }
+
+/* --- NOTICE BOARD MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .chalkboard-surface {
+    padding: 1.5rem !important;
+    min-height: 250px !important;
+  }
+  .chalkboard-header {
+    font-size: 1.5rem !important;
+  }
+  .chalkboard-content p {
+    font-size: 0.95rem !important;
+  }
+}

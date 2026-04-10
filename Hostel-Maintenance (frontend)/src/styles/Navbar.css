@@ -51,3 +51,17 @@
   border-radius: 6px;
   font-weight: 600;
 }
+
+/* --- NAVBAR MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 1rem !important;
+    flex-direction: column !important;
+    height: auto !important;
+    gap: 1rem !important;
+  }
+  .user-info {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+}

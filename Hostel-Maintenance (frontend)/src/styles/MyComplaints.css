@@ -89,3 +89,11 @@
   font-size: 3rem;
   margin-bottom: 1rem;
 }
+
+/* --- MY COMPLAINTS MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .ticket-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}

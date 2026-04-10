@@ -46,3 +46,13 @@
     opacity: 1; 
   }
 }
+
+/* --- TOAST MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .toast-container {
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 20px !important;
+    justify-content: center !important;
+  }
+}

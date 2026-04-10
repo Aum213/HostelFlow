@@ -188,3 +188,24 @@
   background: #f8fafc;
   color: var(--text-main);
 }
+
+/* --- MANAGE COMPLAINTS MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .admin-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hostel-filter-pills {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .triage-board {
+    grid-template-columns: 1fr !important;
+  }
+  .triage-column {
+    min-height: auto !important;
+  }
+}

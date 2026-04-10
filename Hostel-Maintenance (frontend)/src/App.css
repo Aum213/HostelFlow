@@ -121,9 +121,6 @@ body {
   }
 }
 
-/* By applying this animation to all our top-level page containers,
-  React will automatically trigger this smooth glide every time a new route loads! 
-*/
 .home-wrapper,
 .student-dashboard,
 .admin-dashboard,
@@ -133,7 +130,28 @@ body {
   animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Optional: Add a slight stagger to the navbar so it feels detached from the page sliding */
 .top-navbar {
   animation: smoothFadeIn 0.4s ease-out forwards;
+}
+
+/* --- APP MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    padding: 1rem !important;
+  }
+  .top-navbar {
+    padding: 1rem !important;
+    height: auto !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .nav-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+  .nav-links a {
+    margin: 0 0.5rem !important;
+  }
 }

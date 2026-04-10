@@ -42,3 +42,16 @@ button {
   cursor: pointer;
   font-family: var(--sans);
 }
+
+/* ==========================================
+   🚨 EMERGENCY MOBILE RESPONSIVE PATCH 🚨
+   ========================================== */
+@media screen and (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  img, input, button, textarea {
+    max-width: 100% !important;
+  }
+}

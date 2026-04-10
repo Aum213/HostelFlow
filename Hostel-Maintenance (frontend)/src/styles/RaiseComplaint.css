@@ -206,3 +206,30 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(79, 70, 229, 0.4);
 }
+
+/* --- RAISE COMPLAINT MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .raise-complaint-wrapper {
+    padding: 1rem !important;
+  }
+  .request-card-container {
+    flex-direction: column !important;
+  }
+  .request-info-panel, .request-form-panel {
+    width: 100% !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .request-info-panel h2 {
+    font-size: 1.5rem !important;
+  }
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .form-actions {
+    flex-direction: column-reverse !important;
+    gap: 1rem !important;
+  }
+  .btn-secondary, .btn-primary {
+    width: 100% !important;
+  }
+}

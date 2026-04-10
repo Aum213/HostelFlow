@@ -174,3 +174,24 @@
 .login-footer strong {
   color: var(--text-main);
 }
+
+/* --- HOME MOBILE FIX --- */
+@media screen and (max-width: 768px) {
+  .home-wrapper {
+    padding: 1rem !important;
+  }
+  .home-split-container {
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .home-brand-panel, .home-login-panel {
+    width: 100% !important;
+    padding: 2.5rem 1.5rem !important;
+  }
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  .hero-subtitle {
+    margin-bottom: 1.5rem !important;
+  }
+}

@@ -199,3 +199,18 @@ body {
     min-width: 100% !important;
   }
 }
+
+/* ==========================================
+   🚨 FOOTER MOBILE ALIGNMENT FIX 🚨
+   ========================================== */
+@media screen and (max-width: 768px) {
+  footer, 
+  .footer, 
+  .footer-wrapper,
+  .footer-container {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    text-align: center !important;
+  }
+}
